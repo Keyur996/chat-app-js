@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BootStrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Toastr css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <!-- Container -->
+    <div class="container my-4">
+      <h1 class="my-4 text-center">Chat App</h1>
+
+      <!-- buttons for ChatRooms -->
+      <div class="chat-rooms mb-3 text-center">
+        <div class="my-2">Choose a chatroom:</div>
+        <button class="btn" id="general">#general</button>
+        <button class="btn" id="gaming">#gaming</button>
+        <button class="btn" id="music">#music</button>
+        <button class="btn" id="ninjas">#ninjas</button>
+      </div>
+
+      <!-- chat list -->
+      <div class="chat-window">
+        <ul class="chat-list list-group"></ul>
+      </div>
+
+      <!-- new chat room -->
+      <form class="new-chat my-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Your Message:</div>
+          </div>
+          <input type="text" id="message" class="form-control" required />
+          <div class="input-group-append">
+            <input type="submit" class="btn" value="Send" />
+          </div>
+        </div>
+        <div class="update-mssg"></div>
+      </form>
+      <!-- update name form -->
+      <form class="new-name my-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Update name:</div>
+          </div>
+          <input type="text" id="name" class="form-control" required />
+          <div class="input-group-append">
+            <input type="submit" class="btn" value="update" />
+          </div>
+        </div>
+        <div class="update-mssg"></div>
+      </form>
+    </div>
+    <!-- scripts section -->
+
+    <!-- firebase scripts -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyC1JEQ5YBLkUbAE4odv80sAFVgT54MQ14I",
+        authDomain: "js-chat-app-66ccd.firebaseapp.com",
+        projectId: "js-chat-app-66ccd",
+        storageBucket: "js-chat-app-66ccd.appspot.com",
+        messagingSenderId: "448712386750",
+        appId: "1:448712386750:web:f99d40ffdf94c1ec3e16ef",
+        measurementId: "G-EX6R65DLHE",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+      const db = firebase.firestore();
+    </script>
+
+    <!-- end firebase scripts -->
+    <!-- toastr-script -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="./scripts/chat.js"></script>
+    <script src="./scripts/ui.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>
